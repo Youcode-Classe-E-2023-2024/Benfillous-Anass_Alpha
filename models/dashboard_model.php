@@ -1,6 +1,5 @@
 <?php
 
-echo '<h3>- Home Model -</h3>';
 
 //$user = new User(1);
 //$user->username = 'Baz';
@@ -10,5 +9,5 @@ echo '<h3>- Home Model -</h3>';
 //$user->edit();
 //dd($user);
 
-$users = User::getAll();
+/*$users = User::getAll();*/
 //dd($users);
