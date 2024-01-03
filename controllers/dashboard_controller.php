@@ -6,5 +6,6 @@ if (isset($_POST['login'])) {
 }
 
 if (isset($_POST['logout'])) {
-    echo 'Is logout';
+    $authentication = new Authentication();
+    $authentication->logout();
 }
