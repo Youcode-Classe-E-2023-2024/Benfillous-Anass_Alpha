@@ -1,10 +1,236 @@
-table,
-td {
-    border: 1px solid #333;
+body {
+    background-color: #080710;
+    overflow-y: hidden;
 }
 
-thead,
-tfoot {
-    background-color: #333;
-    color: #fff;
+.background {
+    width: 530px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.background .shape {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.shape:first-child {
+    background: linear-gradient(#1845ad,
+    #23a2f6);
+    left: -70px;
+    top: -150px;
+    animation: chaoui 2s linear infinite alternate;
+}
+
+.shape:last-child {
+    background: linear-gradient(to right,
+    #ff512f,
+    #f09819);
+    right: -70px;
+    bottom: -130px;
+    animation: ilyass 2s linear infinite alternate;
+}
+
+@keyframes ilyass {
+    0% {
+        bottom: -130px;
+    }
+
+    100% {
+        bottom: 470px;
+    }
+}
+
+@keyframes chaoui {
+    0% {
+        top: -130px;
+
+    }
+
+    100% {
+        top: 470px;
+    }
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 560px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.13);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+}
+
+form * {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.login-input {
+    display: block;
+    height: 200px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+::placeholder {
+    color: #e5e5e5;
+}
+
+button {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.social {
+    margin-top: 30px;
+    display: flex;
+}
+
+.social div {
+    background: red;
+    width: 150px;
+    border-radius: 3px;
+    padding: 5px 10px 10px 5px;
+    background-color: rgba(255, 255, 255, 0.27);
+    color: #eaf0fb;
+    text-align: center;
+}
+
+.social div:hover {
+    background-color: rgba(255, 255, 255, 0.47);
+}
+
+.social .fb {
+    margin-left: 25px;
+}
+
+.social i {
+    margin-right: 4px;
+}
+
+.register-form {
+    height: 750px;
+}
+
+#profile-section {
+    background: url("../img/online-chat-rooms.webp");
+}
+
+.logout-form {
+    height: 20px !important;
+    width: 20px !important;
+}
+
+#btn {
+    height: 45px;
+    width: 100px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #ffffff80;
+    text-shadow: none;
+    background: transparent;
+    box-shadow: transparent;
+    border: 1px solid #ffffff80;
+    transition: 0.5s ease;
+    user-select: none;
+}
+
+#btn:hover,:focus {
+    color: #ffffff;
+    background: #008cff;
+    border: 1px solid #008cff;
+    text-shadow: 0 0 5px #ffffff,
+    0 0 10px #ffffff,
+    0 0 20px #ffffff;
+    box-shadow: 0 0 5px #008cff,
+    0 0 20px #008cff,
+    0 0 50px #008cff,
+    0 0 100px #008cff;
+}
+
+.logout-btn {
+    position: relative;
+    font-size: 1.2em;
+    padding: 0.7em 1.4em;
+    background-color: #BF0426;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.5em;
+    color: #DEDEDE;
+    box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
+}
+
+.logout-btn::before {
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 0;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, rgba(33,33,33,1) 0%, rgba(33,33,33,1) 50%, rgba(150,4,31,1) 50%, rgba(191,4,38,1) 60%);
+    border-radius: 0 0 0.5em 0;
+    box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.logout-btn:hover::before {
+    width: 1.6em;
+    height: 1.6em;
+}
+
+.logout-btn:active {
+    box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
+    transform: translate(0.1em, 0.1em);
+}
+
+.recover-input {
+    height: 40px;
+    background: rgba(255, 255, 255, 0.07);
 }
