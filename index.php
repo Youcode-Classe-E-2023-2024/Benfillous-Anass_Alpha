@@ -5,13 +5,21 @@ include_once '_functions/functions.php';
 include_once '_config/db.php';
 
 spl_autoload_register(function ($class) {
-    include_once 'models/' . $class . '.php';
+    include_once '_classes/' . $class . '.php';
 });
 
-if (isset($_GET['page']) && !empty($_GET['page'])) {
+if (!isset($_SESSION["login"])) {
+    if (isset($_GET['page']) && $_GET['page'] == "login")
+        $page = 'login';
+    else if (isset($_GET['page']) && ($_GET['page'] == "register" || $_GET['page'] == "password_recovery" || $_GET['page'] == "change_password"))
+        $page = $_GET['page'];
+    else $page = 'login';
+} else if (isset($_SESSION["login"])) {
+    $page = 'dashboard';
+} else if (isset($_GET['page']) && !empty($_GET['page'])) {
     $page = trim(strtolower($_GET['page']));
 } else {
-    $page = 'home';
+    $page = 'dashboard';
 }
 
 $all_pages = scandir('controllers');
