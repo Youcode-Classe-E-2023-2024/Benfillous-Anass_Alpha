@@ -1,4 +1,12 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/phpmailer/phpmailer/src/Exception.php';
+require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require 'vendor/phpmailer/phpmailer/src/SMTP.php';
+
 if (isset($_POST["reset-request-submit"])) {
     $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
 
@@ -25,7 +33,7 @@ if (isset($_POST["reset-request-submit"])) {
 
         if ($row = mysqli_fetch_row($res)) {
 
-            $sql = "DELETE FROM passwordrecovery WHERE 	pwd_reset_email=?";
+            $sql = "DELETE FROM password_recovery WHERE pwd_reset_email=?";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 echo "there is an error 2 ";
