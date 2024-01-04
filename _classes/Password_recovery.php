@@ -29,7 +29,7 @@ class Password_recovery {
 
     function updatePassword($email, $password) {
         global $db;
-        $sql = "UPDATE password_recovery SET password=? WHERE pwd_reset_email=?";
+        $sql = "UPDATE user SET password=? WHERE email=?";
         $stmt = mysqli_stmt_init($db);
         mysqli_stmt_prepare($stmt, $sql);
         mysqli_stmt_bind_param($stmt, "ss", $email, $password);
