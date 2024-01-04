@@ -11,7 +11,7 @@ spl_autoload_register(function ($class) {
 if (!isset($_SESSION["login"])) {
     if (isset($_GET['page']) && $_GET['page'] == "login")
         $page = 'login';
-    else if (isset($_GET['page']) && ($_GET['page'] == "register" || $_GET['page'] == "password_recovery" || $_GET['page'] == "change_password"))
+    else if (isset($_GET['page']) && ($_GET['page'] == "register" || $_GET['page'] == "request_password" || $_GET['page'] == "change_password"))
         $page = $_GET['page'];
     else $page = 'login';
 } else if (isset($_SESSION["login"])) {
