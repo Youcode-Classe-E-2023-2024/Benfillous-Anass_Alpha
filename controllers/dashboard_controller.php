@@ -8,7 +8,7 @@ if (isset($_POST['logout'])) {
 
 if (isset($_POST["products"])) {
     header("Access-Control-Allow-Origin: *");
-    $url = "https://jsonplaceholder.typicode.com/photos";
+    $url = "https://jsonplaceholder.typicode.com/comments";
     $data = file_get_contents($url);
 
     // Decode JSON data into PHP array
@@ -32,4 +32,4 @@ if (isset($_POST["users"])) {
     $data = file_get_contents($url);
     echo $data;
     exit;
-}""
+}

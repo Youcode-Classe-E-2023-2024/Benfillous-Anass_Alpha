@@ -10,32 +10,60 @@ function getProducts() {
             console.log(products);
 
             products.forEach((product) => {
-                productsSection.innerHTML += `    <div class="relative mx-auto w-full">
-        <a href="#" class="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full">
-            <div class="shadow p-4 rounded-lg bg-white">
-                <div class="flex justify-center relative rounded-lg overflow-hidden h-52">
-                    <div class="transition-transform duration-500 transform ease-in-out hover:scale-110 w-full">
-                        <img src="${product.url}" class="absolute inset-0 bg-black opacity-10">
-                    </div>
-
-
-                    <span class="absolute top-0 left-0 inline-flex mt-3 ml-3 px-3 py-2 rounded-lg z-10 bg-red-500 text-sm font-medium text-white select-none">
-\t\t\tProduct #${product.id}
-\t\t  </span>
-                </div>
-
-                <div class="mt-4">
-                    <h2 class="font-medium text-base md:text-lg text-gray-800 line-clamp-1" title="New York">
-                        ${product.title}
-                    </h2>
-                    <p class="mt-2 text-sm text-gray-800 line-clamp-1" title="New York, NY 10004, United States">
-                        New York, NY 10004, United States
-                    </p>
-                </div>
-
-            </div>
-        </a>
-    </div>`;
+                let description = product.body.substr(0, 40) + "...";
+                productsSection.innerHTML += `<tr>
+                                                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                    <p>${product.name}</p>
+                                                                    <p class="text-xs text-gray-400">${description}
+                                                                    </p>
+                                                                </td>
+                                                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                    <p>${products.length}</p>
+                                                                </td>
+                                                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                    <div class="flex text-green-500">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                             class="w-5 h-5 mr-1" fill="none"
+                                                                             viewBox="0 0 24 24" stroke="currentColor">
+                                                                            <path stroke-linecap="round"
+                                                                                  stroke-linejoin="round"
+                                                                                  stroke-width="2"
+                                                                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                                        </svg>
+                                                                        <p>Active</p>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                                    <div class="flex space-x-4">
+                                                                        <a href="#"
+                                                                           class="text-blue-500 hover:text-blue-600">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                 class="w-5 h-5 mr-1" fill="none"
+                                                                                 viewBox="0 0 24 24"
+                                                                                 stroke="currentColor">
+                                                                                <path stroke-linecap="round"
+                                                                                      stroke-linejoin="round"
+                                                                                      stroke-width="2"
+                                                                                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                                                            </svg>
+                                                                            <p>Edit</p>
+                                                                        </a>
+                                                                        <a href="#"
+                                                                           class="text-red-500 hover:text-red-600">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                 class="w-5 h-5 mr-1 ml-3" fill="none"
+                                                                                 viewBox="0 0 24 24"
+                                                                                 stroke="currentColor">
+                                                                                <path stroke-linecap="round"
+                                                                                      stroke-linejoin="round"
+                                                                                      stroke-width="2"
+                                                                                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                            </svg>
+                                                                            <p>Delete</p>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>`;
             })
         }
     })

@@ -4,7 +4,7 @@
         <div class="shape"></div>
     </div>
     <form method="post" action="index.php?page=login" class="form">
-        <h3>Login Here</h3>
+        <h3 class="text-white">Login Here</h3>
 
         <label for="username">Username</label>
         <input class="login-input" name="email" type="text" placeholder="Email" id="username">

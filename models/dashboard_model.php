@@ -1,7 +1,7 @@
 <?php
 
 
-//$user = new User(1);
+$user = new User($_SESSION["user_id"]);
 //$user->username = 'Baz';
 //$user->email = 'Baz';
 //$var = $user->email;

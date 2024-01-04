@@ -4,7 +4,7 @@
         <div class="shape"></div>
     </div>
     <form method="post" action="index.php?page=password_recovery" class="form">
-        <h3>Request To Change Your Password</h3>
+        <h3 class="text-white">Request To Change Your Password</h3>
 
         <label for="username">Username</label>
         <input class="recover-input" name="email" type="text" placeholder="Email" id="username">

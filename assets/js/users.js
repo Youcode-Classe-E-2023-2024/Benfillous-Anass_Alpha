@@ -7,7 +7,6 @@ function getUsers() {
         data: {users: true},
         success: (data) => {
             let users = JSON.parse(data);
-            console.log(users);
 
             users.forEach((user) => {
                 usersSection.innerHTML += `
@@ -30,4 +29,4 @@ function getUsers() {
     })
 }
 
-/*getUsers();*/
+getUsers();

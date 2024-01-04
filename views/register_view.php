@@ -5,7 +5,7 @@
         <div class="shape"></div>
     </div>
     <form method="post" action="index.php?page=register" class="form register-form" enctype="multipart/form-data">
-        <h3>Sign Up Here</h3>
+        <h3 class="text-white">Sign Up Here</h3>
 
         <label>User Picture</label>
         <!-- Input for uploading/selecting an image -->

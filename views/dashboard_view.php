@@ -1972,20 +1972,19 @@
             <div class="text-white">
                 <div class="flex p-2  bg-gray-800">
                     <div class="flex py-3 px-2 items-center">
-                        <p class="text-2xl text-green-500 font-semibold">SA</p>
-                        DASHBOARD<p></p>
+                        <p class="text-2xl text-green-500 font-semibold">XE</p>NO<p></p>
                     </div>
                 </div>
                 <div class="flex justify-center">
                     <div class="">
-                        <img class="hidden h-24 w-24 rounded-full sm:block object-cover mr-2 border-4 border-green-400"
-                             src="" alt="">
-                        <p class="font-bold text-base  text-gray-400 pt-2 text-center w-24">Safwan</p>
+                        <img class="h-24 w-24 rounded-full sm:block object-cover mr-2 border-4 border-green-400"
+                             src="assets/img/<?= $user->picture ?>" alt="">
+                        <p class="font-bold text-base  text-gray-400 pt-2 text-center w-24"><?= $user->username ?></p>
                     </div>
                 </div>
                 <div>
                     <ul class="mt-6 leading-10">
-                        <li class="relative px-2 py-1 ">
+                        <li id="dashboard-btn" class="relative px-2 py-1 ">
                             <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500"
                                href=" #">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -1996,57 +1995,27 @@
                                 <span class="ml-4">DASHBOARD</span>
                             </a>
                         </li>
-                        <li class="relative px-2 py-1" x-data="{ Open : false  }">
-                            <div class="inline-flex items-center justify-between w-full text-base font-semibold transition-colors duration-150 text-gray-500  hover:text-yellow-400 cursor-pointer"
-                                 x-on:click="Open = !Open">
-                                    <span class="inline-flex items-center  text-sm font-semibold text-white hover:text-green-400">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                             viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20"></path>
-                                        </svg>
-                                        <span class="ml-4">ITEM</span>
-                                    </span>
-                                <svg xmlns="http://www.w3.org/2000/svg" x-show="!Open" class="ml-1  text-white w-4 h-4"
-                                     fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <li id="products-btn" class="relative px-2 py-1 ">
+                            <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500"
+                               href=" #">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M15 19l-7-7 7-7"></path>
+                                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                                 </svg>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" x-show="Open" class="ml-1  text-white w-4 h-4"
-                                     fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                                <span class="ml-4">PRODUCTS</span>
+                            </a>
+                        </li>
+                        <li id="users-btn" class="relative px-2 py-1 ">
+                            <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500"
+                               href=" #">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M19 9l-7 7-7-7"></path>
+                                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                                 </svg>
-                            </div>
-
-                            <div x-show.transition="Open" style="display:none;">
-                                <ul x-transition:enter="transition-all ease-in-out duration-300"
-                                    x-transition:enter-start="opacity-25 max-h-0"
-                                    x-transition:enter-end="opacity-100 max-h-xl"
-                                    x-transition:leave="transition-all ease-in-out duration-300"
-                                    x-transition:leave-start="opacity-100 max-h-xl"
-                                    x-transition:leave-end="opacity-0 max-h-0"
-                                    class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium  rounded-md shadow-inner  bg-green-400"
-                                    aria-label="submenu">
-
-                                    <li class="px-2 py-1 text-white transition-colors duration-150">
-                                        <div class="px-1 hover:text-gray-800 hover:bg-gray-100 rounded-md">
-                                            <div class="flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                                     viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                          stroke-width="2"
-                                                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                                                </svg>
-                                                <a href="#"
-                                                   class="w-full ml-2  text-sm font-semibold text-white hover:text-gray-800">Item
-                                                    1</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                                <span class="ml-4">USERS</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -2266,7 +2235,7 @@
         </header>
         <main class="">
             <div class="min-h-screen grid mb-4 pb-10 px-8 mx-4 rounded-3xl bg-gray-100 border-4 border-green-400">
-                <div class="grid grid-cols-12 gap-6">
+                <div id="dashboard-container" class="grid grid-cols-12 gap-6">
                     <div class="grid grid-cols-12 col-span-12 gap-6 xxl:col-span-9">
                         <div class="col-span-12 mt-8">
                             <div class="flex items-center h-10 intro-y">
@@ -3144,104 +3113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-12 mt-5">
-                            <div class="grid gap-2 grid-cols-1 lg:grid-cols-1">
-                                <div class="bg-white p-4 shadow-lg rounded-lg">
-                                    <h1 class="font-bold text-base">Table</h1>
-                                    <div class="mt-4">
-                                        <div class="flex flex-col">
-                                            <div class="-my-2 overflow-x-auto">
-                                                <div class="py-2 align-middle inline-block min-w-full">
-                                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg bg-white">
-                                                        <table class="min-w-full divide-y divide-gray-200">
-                                                            <thead>
-                                                            <tr>
-                                                                <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                                    <div class="flex cursor-pointer">
-                                                                        <span class="mr-2">PRODUCT NAME</span>
-                                                                    </div>
-                                                                </th>
-                                                                <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                                    <div class="flex cursor-pointer">
-                                                                        <span class="mr-2">Stock</span>
-                                                                    </div>
-                                                                </th>
-                                                                <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                                    <div class="flex cursor-pointer">
-                                                                        <span class="mr-2">STATUS</span>
-                                                                    </div>
-                                                                </th>
-                                                                <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                                    <div class="flex cursor-pointer">
-                                                                        <span class="mr-2">ACTION</span>
-                                                                    </div>
-                                                                </th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody class="bg-white divide-y divide-gray-200">
-                                                            <tr>
-                                                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                    <p>Apple MacBook Pro 13</p>
-                                                                    <p class="text-xs text-gray-400">PC &amp; Laptop
-                                                                    </p>
-                                                                </td>
-                                                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                    <p>77</p>
-                                                                </td>
-                                                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                    <div class="flex text-green-500">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                             class="w-5 h-5 mr-1" fill="none"
-                                                                             viewBox="0 0 24 24" stroke="currentColor">
-                                                                            <path stroke-linecap="round"
-                                                                                  stroke-linejoin="round"
-                                                                                  stroke-width="2"
-                                                                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                                                        </svg>
-                                                                        <p>Active</p>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                    <div class="flex space-x-4">
-                                                                        <a href="#"
-                                                                           class="text-blue-500 hover:text-blue-600">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                 class="w-5 h-5 mr-1" fill="none"
-                                                                                 viewBox="0 0 24 24"
-                                                                                 stroke="currentColor">
-                                                                                <path stroke-linecap="round"
-                                                                                      stroke-linejoin="round"
-                                                                                      stroke-width="2"
-                                                                                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                                                                            </svg>
-                                                                            <p>Edit</p>
-                                                                        </a>
-                                                                        <a href="#"
-                                                                           class="text-red-500 hover:text-red-600">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                 class="w-5 h-5 mr-1 ml-3" fill="none"
-                                                                                 viewBox="0 0 24 24"
-                                                                                 stroke="currentColor">
-                                                                                <path stroke-linecap="round"
-                                                                                      stroke-linejoin="round"
-                                                                                      stroke-width="2"
-                                                                                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                                                            </svg>
-                                                                            <p>Delete</p>
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <?php include_once('views/products_view.php'); ?>
@@ -3252,6 +3124,7 @@
 </div>
 <script src="assets/js/products.js"></script>
 <script src="assets/js/users.js"></script>
+<script src="assets/js/dashboard.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
     function data() {
