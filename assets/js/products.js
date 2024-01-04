@@ -1,8 +1,7 @@
-/*
 function getProducts() {
     $.ajax({
         type: "POST",
-        url: "_config/proxy.php",
+        url: "index.php?page=dashboard",
         data: {products: true},
         success: (data) => {
             let products = JSON.parse(data);
@@ -11,4 +10,4 @@ function getProducts() {
     })
 }
 
-getProducts();*/
+getProducts();
