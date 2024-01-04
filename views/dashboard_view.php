@@ -2114,8 +2114,7 @@
         </header>
         <main class="">
             <div class="grid mb-4 pb-10 px-8 mx-4 rounded-3xl bg-gray-100 border-4 border-green-400">
-
-                <div class="grid grid-cols-12 gap-6">
+               <!-- <div class="grid grid-cols-12 gap-6">
                     <div class="grid grid-cols-12 col-span-12 gap-6 xxl:col-span-9">
                         <div class="col-span-12 mt-8">
                             <div class="flex items-center h-10 intro-y">
@@ -3092,7 +3091,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
+                <?php include_once('views/products_view.php');?>
             </div>
         </main>
     </div>
@@ -3233,4 +3233,4 @@
     var chart = new ApexCharts(chart, options);
     chart.render();
 </script>
-<script src="assets/js/product.js"></script>
+<script src="assets/js/products.js"></script>
