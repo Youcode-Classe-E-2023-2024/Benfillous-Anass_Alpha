@@ -92,5 +92,6 @@ productSubmitBtn.addEventListener("click", () => {
     console.log(title.value);
     console.log(description.value);
 
-    addUser(title.value, description.value);
+    addProduct(title.value, description.value);
 });
+
