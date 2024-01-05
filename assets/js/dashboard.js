@@ -55,7 +55,7 @@ userAddBtn.addEventListener("click", ()=> {
     userForm.classList.remove("hidden");
 })
 
-productAddBtn.addEventListener('click', function () {
+document.getElementById('add-product-btn').addEventListener('click', function () {
     const productFormContainer = document.getElementById('product-forms-container');
     const clone = productFormContainer.querySelector('.product-form').cloneNode(true);
 
@@ -68,16 +68,26 @@ productAddBtn.addEventListener('click', function () {
 });
 
 document.getElementById('add-user-btn').addEventListener('click', function () {
-    // Clone the user form
-    var userFormContainer = document.getElementById('user-forms-container');
-    var clone = userFormContainer.querySelector('.user-form').cloneNode(true);
+    const userFormContainer = document.getElementById('user-forms-container');
+    const clone = userFormContainer.querySelector('.user-form').cloneNode(true);
 
-    // Reset values in the cloned form
-    var inputs = clone.querySelectorAll('input');
+    const inputs = clone.querySelectorAll('input');
     inputs.forEach(function (input) {
         input.value = '';
     });
 
-    // Append the cloned form to the container
     userFormContainer.appendChild(clone);
 });
+function addToNotification() {
+    $.ajax({
+        type: "POST",
+        url: "index.php?page=dashboard",
+        data: {
+            request: "notification"
+        },
+        success: (data) => {
+            console.log(data);
+        }
+    })
+}
+
