@@ -36,7 +36,7 @@ function getProducts() {
                                                                 </td>
                                                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                                     <div class="flex space-x-4">
-                                                                        <div data-product-id="${product.id}"
+                                                                        <div data-product-id="${product.id}" data-product-title="${product.name}" data-product-description="${product.body}"
                                                                            class="edit-product cursor-pointer text-blue-500 hover:text-blue-600">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                                  class="w-5 h-5 mr-1" fill="none"
@@ -71,8 +71,12 @@ function getProducts() {
                 // Edit product click event
                 $('.edit-product').click(function() {
                     clickedProductID = $(this).data('product-id');
+                    let titleValue = $(this).data('product-title');
+                    let descriptionValue = $(this).data('product-description');
                     editProductFormContainer.classList.remove("hidden");
                     productsContainer.classList.add("hidden");
+                    title.value = titleValue;
+                    description.value = descriptionValue;
                 });
 
                 // Delete product click event

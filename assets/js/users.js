@@ -25,7 +25,7 @@ function getUsers() {
                     <p class="designation">${user.email}</p>
                 </div>
                 <div class="flex justify-around p-2">
-                     <div class="edit-product cursor-pointer w-auto h-auto" data-user-id="${user.id}">
+                     <div class="edit-product cursor-pointer w-auto h-auto"  data-user-id="${user.id}" data-user-name="${user.name}" data-user-email="${user.email}">
                         <div class="flex-1 h-full">
                           <div class="flex items-center justify-center flex-1 h-full p-2 border border-blue-800 text-white shadow rounded-lg">
                             <div class="relative">
@@ -52,8 +52,12 @@ function getUsers() {
                 // Edit product click event
                 $('.edit-product').click(function () {
                     clickedUserID = $(this).data('user-id');
+                    let username = $(this).data('user-name');
+                    let userEmail = $(this).data('user-email');
                     editUserFormContainer.classList.remove("hidden");
                     usersContainer.classList.add("hidden");
+                    name.value = username;
+                    email.value = userEmail;
                 });
 
                 // Delete product click event
@@ -129,8 +133,8 @@ userSubmitBtn.addEventListener('click', function () {
 
 const editUserBtn = document.getElementById("user-edit-submit-btn");
 
+const name = document.getElementById("edit-full_name");
+const email = document.getElementById("edit-email");
 editUserBtn.addEventListener("click", () => {
-    const name = document.getElementById("edit-full_name");
-    const email = document.getElementById("edit-email");
     editProduct(name.value, email.value, clickedUserID);
 })
