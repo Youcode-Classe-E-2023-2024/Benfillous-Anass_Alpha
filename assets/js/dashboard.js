@@ -9,16 +9,40 @@ dashboardBtn.addEventListener("click", () => {
     productsContainer.classList.add("hidden");
     usersContainer.classList.add("hidden");
     dashboardContainer.classList.remove("hidden");
+    productForm.classList.add("hidden");
+    userForm.classList.add("hidden");
 });
 
 usersBtn.addEventListener("click", () => {
     productsContainer.classList.add("hidden");
     usersContainer.classList.remove("hidden");
     dashboardContainer.classList.add("hidden");
+    productForm.classList.add("hidden");
+    userForm.classList.add("hidden");
 });
 
 productsBtn.addEventListener("click", () => {
     productsContainer.classList.remove("hidden");
     usersContainer.classList.add("hidden");
     dashboardContainer.classList.add("hidden");
+    productForm.classList.add("hidden");
+    userForm.classList.add("hidden");
 });
+
+
+const productAddBtn = document.getElementById("product-add-btn");
+const productForm = document.getElementById("product-form-container");
+
+productAddBtn.addEventListener("click", ()=> {
+    productsContainer.classList.add("hidden");
+    productForm.classList.remove("hidden");
+})
+
+const userAddBtn = document.getElementById("user-add-btn");
+const userForm = document.getElementById("user-form-container");
+
+
+userAddBtn.addEventListener("click", ()=> {
+    usersContainer.classList.add("hidden");
+    userForm.classList.remove("hidden");
+})
