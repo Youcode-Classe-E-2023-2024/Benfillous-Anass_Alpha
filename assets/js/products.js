@@ -73,7 +73,7 @@ getProducts();
 
 function addProduct(title, description) {
     $.post(
-        "https://jsonplaceholder.typicode.com/users",
+        "https://jsonplaceholder.typicode.com/posts",
         {
             title,
             description
@@ -95,3 +95,32 @@ productSubmitBtn.addEventListener("click", () => {
     addProduct(title.value, description.value);
 });
 
+function editProduct(title, description, id) {
+    $.ajax({
+        type: "PUT",
+        url: `https://jsonplaceholder.typicode.com/posts/${id}`,
+        data: {
+            title,
+            description
+        },
+        success: (data, status) => {
+            console.log(status);
+        }
+    })
+}
+
+function deleteProduct(title, description, id) {
+    $.ajax({
+        type: "DELETE",
+        url: `https://jsonplaceholder.typicode.com/posts/${id}`,
+        success: (data, status) => {
+            console.log(status);
+        }
+    })
+}
+
+function addMultiple(infoArray) {
+    infoArray.forEach((info) => {
+        addProduct(info.title, info.description);
+    })
+}
