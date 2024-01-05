@@ -10,24 +10,29 @@
                         <p>Please fill out all the fields.</p>
                     </div>
 
-                    <div class="lg:col-span-2">
-                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-                            <div class="md:col-span-5">
+                    <div class="lg:col-span-2" id="user-forms-container">
+                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5 user-form">
+                            <div class="md:col-span-3">
                                 <label for="full_name">Full Name</label>
-                                <input type="text" name="full_name" id="full_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black" value="" />
+                                <input type="text" name="full_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black" value="" />
                             </div>
 
-                            <div class="md:col-span-5">
+                            <div class="md:col-span-2">
                                 <label for="email">Email Address</label>
-                                <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black" value="" placeholder="email@domain.com" />
+                                <input type="text" name="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black" value="" placeholder="email@domain.com" />
                             </div>
+                        </div>
 
-                            <div class="md:col-span-5 text-right">
-                                <div class="inline-flex items-end">
-                                    <button id="user-submit-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
-                                </div>
+                        <div class="md:col-span-5 text-right mt-4">
+                            <div class="inline-flex items-end">
+                                <button id="add-user-btn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add Another</button>
                             </div>
+                        </div>
+                    </div>
 
+                    <div class="lg:col-span-3 text-right">
+                        <div class="inline-flex items-end">
+                            <button id="user-submit-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit All</button>
                         </div>
                     </div>
                 </div>

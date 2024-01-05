@@ -1,5 +1,7 @@
 const usersSection = document.getElementById("users-list-section");
 
+let clickedUserID;
+
 function getUsers() {
     $.ajax({
         type: "POST",
@@ -23,7 +25,7 @@ function getUsers() {
                     <p class="designation">${user.email}</p>
                 </div>
                 <div class="flex justify-around p-2">
-                     <div class="cursor-pointer w-auto h-auto">
+                     <div class="edit-product cursor-pointer w-auto h-auto" data-user-id="${user.id}">
                         <div class="flex-1 h-full">
                           <div class="flex items-center justify-center flex-1 h-full p-2 border border-blue-800 text-white shadow rounded-lg">
                             <div class="relative">
@@ -34,7 +36,7 @@ function getUsers() {
                           </div>
                         </div>
           </div>
-                     <button class="inline-flex items-center w-20 px-2 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md">
+                     <button data-user-id="${user.id}" class="delete-User inline-flex items-center w-20 px-2 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md">
                     \t<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     \t  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     \t</svg>
@@ -45,6 +47,21 @@ function getUsers() {
             </div>
         </div>`;
             })
+
+            $(document).ready(function () {
+                // Edit product click event
+                $('.edit-product').click(function () {
+                    clickedUserID = $(this).data('user-id');
+                    editUserFormContainer.classList.remove("hidden");
+                    usersContainer.classList.add("hidden");
+                });
+
+                // Delete product click event
+                $('.delete-User').click(function () {
+                    clickedUserID = $(this).data('user-id');
+                    deleteUser(clickedUserID);
+                });
+            });
         }
     })
 }
@@ -65,13 +82,55 @@ function addUser(name, email) {
     )
 }
 
+function editUser(name, email, id) {
+    $.ajax({
+        type: "PUT",
+        url: `https://jsonplaceholder.typicode.com/users/${id}`,
+        data: {
+            name,
+            email
+        },
+        success: (data, status) => {
+            console.log(status);
+        }
+    })
+}
+
+function deleteUser(id) {
+    $.ajax({
+        type: "DELETE",
+        url: `https://jsonplaceholder.typicode.com/users/${id}`,
+        success: (data, status) => {
+            console.log(status);
+        }
+    })
+}
+
+function addMultipleUsers(infoArray) {
+    infoArray.forEach((info) => {
+        addProduct(info.title, info.description);
+    })
+}
+
 const userSubmitBtn = document.getElementById("user-submit-btn");
-const name = document.getElementById("full_name");
-const email = document.getElementById("email");
 
-userSubmitBtn.addEventListener("click", () => {
-    console.log(name.value);
-    console.log(email.value);
+userSubmitBtn.addEventListener('click', function () {
+    // Gather data from all user forms and submit
+    var userForms = document.querySelectorAll('.user-form');
+    var formData = [];
 
-    addUser(name.value, email.value);
+    userForms.forEach(function (form) {
+        var fullName = form.querySelector('[name="full_name"]').value;
+        var email = form.querySelector('[name="email"]').value;
+        formData.push({name: fullName, email: email});
+    });
+    addMultipleUsers(formData);
 });
+
+const editUserBtn = document.getElementById("user-edit-submit-btn");
+
+editUserBtn.addEventListener("click", () => {
+    const name = document.getElementById("edit-full_name");
+    const email = document.getElementById("edit-email");
+    editProduct(name.value, email.value, clickedUserID);
+})
