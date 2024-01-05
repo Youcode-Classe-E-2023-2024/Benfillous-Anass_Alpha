@@ -1958,9 +1958,7 @@
     }
 </style>
 <div class="fixed bottom-0 left-0 right-0 z-40 px-4 py-3 text-center text-white bg-gray-800">
-    This is a Dashboard by safwanAzman.
-    <a class="text-gray-200 underline" href="https://tailwindcomponents.com/component/resposive-dashboard">Component
-        details</a>
+    XENO 2024 ©
 </div>
 
 
@@ -1998,10 +1996,35 @@
                         <li id="products-btn" class="relative px-2 py-1 ">
                             <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500"
                                href=" #">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                     stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                <svg class="h-6 w-6" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier"><title></title>
+                                        <g fill="none" fill-rule="evenodd" id="页面-1" stroke="none" stroke-width="1">
+                                            <g id="导航图标" transform="translate(-325.000000, -80.000000)">
+                                                <g id="编组" transform="translate(325.000000, 80.000000)">
+                                                    <polygon fill="#FFFFFF" fill-opacity="0.01" fill-rule="nonzero"
+                                                             id="路径" points="24 0 0 0 0 24 24 24"></polygon>
+                                                    <polygon id="路径" points="22 7 12 2 2 7 2 17 12 22 22 17"
+                                                             stroke="#ffffff" stroke-linejoin="round"
+                                                             stroke-width="1.5"></polygon>
+                                                    <line id="路径" stroke="#ffffff" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="1.5" x1="2" x2="12"
+                                                          y1="7" y2="12"></line>
+                                                    <line id="路径" stroke="#ffffff" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="1.5" x1="12" x2="12"
+                                                          y1="22" y2="12"></line>
+                                                    <line id="路径" stroke="#ffffff" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="1.5" x1="22" x2="12"
+                                                          y1="7" y2="12"></line>
+                                                    <line id="路径" stroke="#ffffff" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="1.5" x1="17" x2="7"
+                                                          y1="4.5" y2="9.5"></line>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
                                 </svg>
                                 <span class="ml-4">PRODUCTS</span>
                             </a>
@@ -2009,10 +2032,18 @@
                         <li id="users-btn" class="relative px-2 py-1 ">
                             <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500"
                                href=" #">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                     stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                     stroke="#ffffff" class="h-6 w-6">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                                              stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                              stroke-linejoin="round"></path>
+                                        <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z"
+                                              stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                              stroke-linejoin="round"></path>
+                                    </g>
                                 </svg>
                                 <span class="ml-4">USERS</span>
                             </a>
@@ -3118,13 +3149,15 @@
                 </div>
                 <?php include_once('views/products_view.php'); ?>
                 <?php include_once('views/users_view.php'); ?>
+                <?php include_once('views/productForm_view.php'); ?>
+                <?php include_once('views/userForm_view.php'); ?>
             </div>
         </main>
     </div>
 </div>
+<script src="assets/js/dashboard.js"></script>
 <script src="assets/js/products.js"></script>
 <script src="assets/js/users.js"></script>
-<script src="assets/js/dashboard.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
     function data() {
