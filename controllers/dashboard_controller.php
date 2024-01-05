@@ -33,3 +33,8 @@ if (isset($_POST["users"])) {
     echo $data;
     exit;
 }
+
+if(isset($_POST["request"]) && $_POST["request"] === "notification") {
+    echo "mqowed";
+    exit;
+}
