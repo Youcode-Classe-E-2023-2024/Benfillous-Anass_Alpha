@@ -101,6 +101,7 @@ function addProduct(title, description) {
         },
         (data, status) => {
             console.log(status);
+            addToNotification();
         }
     )
 }
