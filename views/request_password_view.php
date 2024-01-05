@@ -3,7 +3,7 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form method="post" action="index.php?page=password_recovery" class="form">
+    <form method="post" action="index.php?page=request_password" class="form">
         <h3 class="text-white">Request To Change Your Password</h3>
 
         <label for="username">Username</label>
