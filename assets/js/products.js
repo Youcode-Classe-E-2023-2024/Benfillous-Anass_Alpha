@@ -1,5 +1,6 @@
 const productsSection = document.getElementById("products-list-section");
 
+let clickedProductID;
 function getProducts() {
     $.ajax({
         type: "POST",
@@ -35,8 +36,8 @@ function getProducts() {
                                                                 </td>
                                                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                                     <div class="flex space-x-4">
-                                                                        <a href="#"
-                                                                           class="text-blue-500 hover:text-blue-600">
+                                                                        <div data-product-id="${product.id}"
+                                                                           class="edit-product cursor-pointer text-blue-500 hover:text-blue-600">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                                  class="w-5 h-5 mr-1" fill="none"
                                                                                  viewBox="0 0 24 24"
@@ -47,9 +48,9 @@ function getProducts() {
                                                                                       d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                                                             </svg>
                                                                             <p>Edit</p>
-                                                                        </a>
-                                                                        <a href="#"
-                                                                           class="text-red-500 hover:text-red-600">
+                                                                        </div>
+                                                                        <div data-product-id="${product.id}"
+                                                                           class="cursor-pointer delete-product text-red-500 hover:text-red-600">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                                  class="w-5 h-5 mr-1 ml-3" fill="none"
                                                                                  viewBox="0 0 24 24"
@@ -65,6 +66,22 @@ function getProducts() {
                                                                 </td>
                                                             </tr>`;
             })
+
+            $(document).ready(function() {
+                // Edit product click event
+                $('.edit-product').click(function() {
+                    clickedProductID = $(this).data('product-id');
+                    editProductFormContainer.classList.remove("hidden");
+                    productsContainer.classList.add("hidden");
+                });
+
+                // Delete product click event
+                $('.delete-product').click(function() {
+                    clickedProductID = $(this).data('product-id');
+                    deleteProduct(clickedProductID);
+                });
+            });
+
         }
     })
 }
@@ -84,16 +101,8 @@ function addProduct(title, description) {
     )
 }
 
-const productSubmitBtn = document.getElementById("product-submit-btn");
-const title = document.getElementById("title");
-const description = document.getElementById("description");
-
-productSubmitBtn.addEventListener("click", () => {
-    console.log(title.value);
-    console.log(description.value);
-
-    addProduct(title.value, description.value);
-});
+const title = document.getElementById("edit-title");
+const description = document.getElementById("edit-description");
 
 function editProduct(title, description, id) {
     $.ajax({
@@ -109,7 +118,7 @@ function editProduct(title, description, id) {
     })
 }
 
-function deleteProduct(title, description, id) {
+function deleteProduct(id) {
     $.ajax({
         type: "DELETE",
         url: `https://jsonplaceholder.typicode.com/posts/${id}`,
@@ -119,8 +128,27 @@ function deleteProduct(title, description, id) {
     })
 }
 
-function addMultiple(infoArray) {
+function addMultipleProducts(infoArray) {
     infoArray.forEach((info) => {
         addProduct(info.title, info.description);
     })
 }
+
+document.getElementById('product-submit-btn').addEventListener('click', function () {
+    const productForms = document.querySelectorAll('.product-form');
+    let formData = [];
+
+    productForms.forEach((form) => {
+        let title = form.querySelector('[name="title"]').value;
+        let description = form.querySelector('[name="description"]').value;
+        formData.push({ title: title, description: description });
+    });
+
+    addMultipleProducts(formData);
+});
+
+const editProductBtn = document.getElementById("edit-product-submit-btn");
+
+editProductBtn.addEventListener("click", () => {
+    editProduct(title.value, description.value, clickedProductID);
+})

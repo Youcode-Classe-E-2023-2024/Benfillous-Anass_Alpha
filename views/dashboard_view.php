@@ -3150,6 +3150,7 @@
                 <?php include_once('views/products_view.php'); ?>
                 <?php include_once('views/users_view.php'); ?>
                 <?php include_once('views/productForm_view.php'); ?>
+                <?php include_once('views/productEditForm.php'); ?>
                 <?php include_once('views/userForm_view.php'); ?>
             </div>
         </main>
