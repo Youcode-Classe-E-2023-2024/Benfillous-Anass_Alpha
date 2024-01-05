@@ -50,3 +50,28 @@ function getUsers() {
 }
 
 getUsers();
+
+
+function addUser(name, email) {
+    $.post(
+        "https://jsonplaceholder.typicode.com/users",
+        {
+            name,
+            email
+        },
+        (data, status) => {
+            console.log(status);
+        }
+    )
+}
+
+const userSubmitBtn = document.getElementById("user-submit-btn");
+const name = document.getElementById("full_name");
+const email = document.getElementById("email");
+
+userSubmitBtn.addEventListener("click", () => {
+    console.log(name.value);
+    console.log(email.value);
+
+    addUser(name.value, email.value);
+});
