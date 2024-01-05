@@ -1969,9 +1969,9 @@
         <div>
             <div class="text-white">
                 <div class="flex p-2  bg-gray-800">
-                    <div class="flex py-3 px-2 items-center">
+                    <a href="./" class="flex py-3 px-2 items-center">
                         <p class="text-2xl text-green-500 font-semibold">XE</p>NO<p></p>
-                    </div>
+                    </a>
                 </div>
                 <div class="flex justify-center">
                     <div class="">
