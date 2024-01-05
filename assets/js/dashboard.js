@@ -4,6 +4,7 @@ const usersBtn = document.getElementById("users-btn");
 const productsContainer = document.getElementById("products-container");
 const usersContainer = document.getElementById("users-container");
 const dashboardContainer = document.getElementById("dashboard-container");
+const editProductFormContainer = document.getElementById("edit-product-form-container");
 
 dashboardBtn.addEventListener("click", () => {
     productsContainer.classList.add("hidden");
@@ -11,6 +12,7 @@ dashboardBtn.addEventListener("click", () => {
     dashboardContainer.classList.remove("hidden");
     productForm.classList.add("hidden");
     userForm.classList.add("hidden");
+    editProductFormContainer.classList.add("hidden");
 });
 
 usersBtn.addEventListener("click", () => {
@@ -19,6 +21,7 @@ usersBtn.addEventListener("click", () => {
     dashboardContainer.classList.add("hidden");
     productForm.classList.add("hidden");
     userForm.classList.add("hidden");
+    editProductFormContainer.classList.add("hidden");
 });
 
 productsBtn.addEventListener("click", () => {
@@ -27,6 +30,7 @@ productsBtn.addEventListener("click", () => {
     dashboardContainer.classList.add("hidden");
     productForm.classList.add("hidden");
     userForm.classList.add("hidden");
+    editProductFormContainer.classList.add("hidden");
 });
 
 
@@ -46,3 +50,15 @@ userAddBtn.addEventListener("click", ()=> {
     usersContainer.classList.add("hidden");
     userForm.classList.remove("hidden");
 })
+
+productAddBtn.addEventListener('click', function () {
+    const productFormContainer = document.getElementById('product-forms-container');
+    const clone = productFormContainer.querySelector('.product-form').cloneNode(true);
+
+    const inputs = clone.querySelectorAll('input');
+    inputs.forEach(function (input) {
+        input.value = '';
+    });
+
+    productFormContainer.appendChild(clone);
+});
