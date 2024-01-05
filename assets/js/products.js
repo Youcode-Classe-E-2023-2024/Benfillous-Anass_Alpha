@@ -70,3 +70,27 @@ function getProducts() {
 }
 
 getProducts();
+
+function addProduct(title, description) {
+    $.post(
+        "https://jsonplaceholder.typicode.com/users",
+        {
+            title,
+            description
+        },
+        (data, status) => {
+            console.log(status);
+        }
+    )
+}
+
+const productSubmitBtn = document.getElementById("product-submit-btn");
+const title = document.getElementById("title");
+const description = document.getElementById("description");
+
+productSubmitBtn.addEventListener("click", () => {
+    console.log(title.value);
+    console.log(description.value);
+
+    addUser(title.value, description.value);
+});

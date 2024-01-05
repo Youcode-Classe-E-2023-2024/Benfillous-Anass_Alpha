@@ -14,17 +14,17 @@
                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
                             <div class="md:col-span-5">
                                 <label for="titl">Title</label>
-                                <input type="text" name="titl" id="title" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                <input type="text" name="title" id="title" class="text-black h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Enter The Title" value="" />
                             </div>
 
                             <div class="md:col-span-5">
                                 <label for="description">Description</label>
-                                <input type="text" name="description" id="description" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="email@domain.com" />
+                                <input type="text" name="description" id="description" class="text-black h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="Write a Description" />
                             </div>
 
                             <div class="md:col-span-5 text-right">
                                 <div class="inline-flex items-end">
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                                    <button id="product-submit-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                                 </div>
                             </div>
 
@@ -33,9 +33,5 @@
                 </div>
             </div>
         </div>
-
-        <a href="https://www.buymeacoffee.com/dgauderman" target="_blank" class="md:absolute bottom-0 right-0 p-4 float-right">
-            <img src="https://www.buymeacoffee.com/assets/img/guidelines/logo-mark-3.svg" alt="Buy Me A Coffee" class="transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white">
-        </a>
     </div>
 </div>
