@@ -40,5 +40,12 @@ if(isset($_POST["request"]) && $_POST["request"] === "addNotification") {
     $notification->addNotification($_SESSION["user_id"], $notificationDetail);
     exit;
 }
+
+if(isset($_POST["request"]) && $_POST["request"] === "displayNotification") {
+    $notification = new Notification;
+    $notificationData = $notification->showNotifications($_SESSION["user_id"]);
+
+    echo json_encode($notificationData);
+    exit;
     exit;
 }
