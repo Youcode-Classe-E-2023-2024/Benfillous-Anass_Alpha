@@ -82,6 +82,7 @@ function addUser(name, email) {
         },
         (data, status) => {
             console.log(status);
+            addToNotification("User Added Successfully: Your Newest Addition is Now Live!");
         }
     )
 }
@@ -96,6 +97,7 @@ function editUser(name, email, id) {
         },
         success: (data, status) => {
             console.log(status);
+            addToNotification("User Updated: Changes Applied Successfully");
         }
     })
 }
@@ -106,13 +108,14 @@ function deleteUser(id) {
         url: `https://jsonplaceholder.typicode.com/users/${id}`,
         success: (data, status) => {
             console.log(status);
+            addToNotification("User Deleted: Farewell, User Removed Successfully");
         }
     })
 }
 
 function addMultipleUsers(infoArray) {
     infoArray.forEach((info) => {
-        addProduct(info.title, info.description);
+        addUser(info.name, info.email);
     })
 }
 
@@ -136,5 +139,5 @@ const editUserBtn = document.getElementById("user-edit-submit-btn");
 const name = document.getElementById("edit-full_name");
 const email = document.getElementById("edit-email");
 editUserBtn.addEventListener("click", () => {
-    editProduct(name.value, email.value, clickedUserID);
+    editUser(name.value, email.value, clickedUserID);
 })

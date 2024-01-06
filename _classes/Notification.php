@@ -27,7 +27,7 @@ class Notification {
 
     function showNotifications($user_id) {
         global $db;
-        $sql = "SELECT * FROM notification WHERE user_id=? ORDER BY notification_id DESC LIMIT 10";
+        $sql = "SELECT * FROM notification WHERE user_id=? ORDER BY notification_id DESC LIMIT 4";
         $stmt = mysqli_stmt_init($db);
         mysqli_stmt_prepare($stmt, $sql);
         mysqli_stmt_bind_param($stmt, "i", $user_id);
