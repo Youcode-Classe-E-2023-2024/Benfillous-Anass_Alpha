@@ -121,5 +121,3 @@ function notificationHasBeenSeen(notificationId) {
         }
     })
 }
-
-notificationHasBeenSeen(1)
