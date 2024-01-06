@@ -107,6 +107,14 @@ function displayNotification() {
 }
 
 displayNotification();
+
+function notificationHasBeenSeen(notificationId) {
+    $.ajax({
+        type: "post",
+        url: "index.php?page=dashboard",
+        data: {
+            request: "notificationSeen",
+            notificationId
         },
         success: (data) => {
             console.log(data);
