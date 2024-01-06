@@ -1,5 +1,5 @@
 const productsSection = document.getElementById("products-list-section");
-
+const productCount = document.getElementById("product-count");
 let clickedProductID;
 function getProducts() {
     $.ajax({
@@ -9,7 +9,7 @@ function getProducts() {
         success: (data) => {
             let products = JSON.parse(data);
             console.log(products);
-
+            productCount.innerHTML = products.length;
             products.forEach((product) => {
                 let description = product.body.substr(0, 40) + "...";
                 productsSection.innerHTML += `<tr>
