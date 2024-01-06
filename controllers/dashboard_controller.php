@@ -34,7 +34,11 @@ if (isset($_POST["users"])) {
     exit;
 }
 
-if(isset($_POST["request"]) && $_POST["request"] === "notification") {
-    echo "mqowed";
+if(isset($_POST["request"]) && $_POST["request"] === "addNotification") {
+    $notification = new Notification;
+    $notificationDetail = $_POST["notification"];
+    $notification->addNotification($_SESSION["user_id"], $notificationDetail);
+    exit;
+}
     exit;
 }
