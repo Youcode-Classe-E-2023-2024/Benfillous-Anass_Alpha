@@ -101,7 +101,7 @@ function addProduct(title, description) {
         },
         (data, status) => {
             console.log(status);
-            addToNotification();
+            addToNotification("Product Added Successfully: Your Newest Addition is Now Live!");
         }
     )
 }
@@ -119,6 +119,7 @@ function editProduct(title, description, id) {
         },
         success: (data, status) => {
             console.log(status);
+            addToNotification("Product Updated: Changes Applied Successfully");
         }
     })
 }
@@ -129,6 +130,7 @@ function deleteProduct(id) {
         url: `https://jsonplaceholder.typicode.com/posts/${id}`,
         success: (data, status) => {
             console.log(status);
+            addToNotification("Product Deleted: Farewell, Item Removed Successfully");
         }
     })
 }

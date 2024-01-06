@@ -78,12 +78,18 @@ document.getElementById('add-user-btn').addEventListener('click', function () {
 
     userFormContainer.appendChild(clone);
 });
-function addToNotification() {
+function addToNotification(notification) {
     $.ajax({
         type: "POST",
         url: "index.php?page=dashboard",
         data: {
-            request: "notification"
+            request: "addNotification",
+            notification
+        },
+        success: (data) => {
+            console.log(data);
+        }
+    })
         },
         success: (data) => {
             console.log(data);
