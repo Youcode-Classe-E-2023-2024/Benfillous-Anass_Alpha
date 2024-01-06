@@ -1,7 +1,7 @@
 const usersSection = document.getElementById("users-list-section");
 
 let clickedUserID;
-
+const userCount = document.getElementById("user-count");
 function getUsers() {
     $.ajax({
         type: "POST",
@@ -9,7 +9,7 @@ function getUsers() {
         data: {users: true},
         success: (data) => {
             let users = JSON.parse(data);
-
+            userCount.innerText = users.length;
             users.forEach((user) => {
                 usersSection.innerHTML += `
         <div class="col-12 col-sm-6 col-lg-3">
