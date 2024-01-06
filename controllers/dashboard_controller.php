@@ -47,5 +47,13 @@ if(isset($_POST["request"]) && $_POST["request"] === "displayNotification") {
 
     echo json_encode($notificationData);
     exit;
+}
+
+if(isset($_POST["request"]) && $_POST["request"] === "notificationSeen") {
+    $notification = new Notification;
+    $notificationId = $_POST["notificationId"];
+    $notification->notificationSeen($notificationId);
+
+    echo "nadiii";
     exit;
 }
