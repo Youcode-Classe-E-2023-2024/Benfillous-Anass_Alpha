@@ -116,6 +116,7 @@ function displayNotification() {
             let notifications = JSON.parse(data);
             console.log(notifications);
             notifications.forEach((notification) => {
+/*                notificationHasBeenSeen(notification.notification_id);*/
                 notificationContainer.innerHTML += `<li class="flex">
                                     <div class="text-white inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800">
                                         <span>${notification.notification}</span>
@@ -141,3 +142,30 @@ function notificationHasBeenSeen(notificationId) {
         }
     })
 }
+
+
+function checkNotification() {
+    notificationContainer.innerHTML = "";
+    $.ajax({
+        type: 'post',
+        url: 'index.php?page=dashboard',
+        data: {
+            request: "displayNotification"
+        },
+        success: (data) => {
+            let notifications = JSON.parse(data);
+            console.log(notifications);
+            notifications.forEach((notification) => {
+               if (notification.seen == 0) {
+                    $("#notif-red").hide();
+                    return;
+               } else {
+                   $("#notif-red").show();
+               }
+            })
+        }
+    })
+}
+
+/*
+setInterval(checkNotification, 3000);*/
