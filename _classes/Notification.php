@@ -11,7 +11,7 @@ class Notification {
 
     function showNotificationsNotSeen($user_id) {
         global $db;
-        $sql = "SELECT * FROM notification WHERE user_id=? AND seen=0 SORT BY notification_id DESC LIMIT 10";
+        $sql = "SELECT * FROM notification WHERE user_id=? AND seen=0 ORDER BY notification_id DESC LIMIT 10";
         $stmt = mysqli_stmt_init($db);
         mysqli_stmt_prepare($stmt, $sql);
         mysqli_stmt_bind_param($stmt, "i", $user_id);
@@ -27,7 +27,7 @@ class Notification {
 
     function showNotifications($user_id) {
         global $db;
-        $sql = "SELECT * FROM notification WHERE user_id=? SORT BY notification_id DESC LIMIT 10";
+        $sql = "SELECT * FROM notification WHERE user_id=? ORDER BY notification_id DESC LIMIT 10";
         $stmt = mysqli_stmt_init($db);
         mysqli_stmt_prepare($stmt, $sql);
         mysqli_stmt_bind_param($stmt, "i", $user_id);
