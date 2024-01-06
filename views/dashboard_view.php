@@ -2183,7 +2183,7 @@
 
                     <!-- Notifications menu -->
                     <li class="relative">
-                        <button class="p-2 bg-white text-green-400 align-middle rounded-full hover:text-white hover:bg-green-400 focus:outline-none "
+                        <button id="openNotif" class="p-2 bg-white text-green-400 align-middle rounded-full hover:text-white hover:bg-green-400 focus:outline-none "
                                 @click="toggleNotificationsMenu" @keydown.escape="closeNotificationsMenu"
                                 aria-label="Notifications" aria-haspopup="true">
                             <div class="flex items-cemter">
@@ -2197,22 +2197,11 @@
                             <span aria-hidden="true"
                                   class="absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full dark:border-gray-800"></span>
                         </button>
-                        <template x-if="isNotificationsMenuOpen">
-                            <ul x-transition:leave="transition ease-in duration-150"
-                                x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                                @click.away="closeNotificationsMenu" @keydown.escape="closeNotificationsMenu"
-                                class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-green-400 border border-green-500 rounded-md shadow-md">
-                                <li class="flex">
-                                    <a class="text-white inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
-                                       href="#">
-                                        <span>Messages</span>
-                                        <span class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600">
-                                                13
-                                            </span>
-                                    </a>
-                                </li>
+                        <div class="hidden" id="notificationList">
+                            <ul id="notificationContainer"
+                                class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-green-400 border border-green-500 rounded-md shadow-md"
                             </ul>
-                        </template>
+                        </div>
                     </li>
 
                     <!-- Profile menu -->

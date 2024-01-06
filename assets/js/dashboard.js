@@ -41,7 +41,7 @@ productsBtn.addEventListener("click", () => {
 const productAddBtn = document.getElementById("product-add-btn");
 const productForm = document.getElementById("product-form-container");
 
-productAddBtn.addEventListener("click", ()=> {
+productAddBtn.addEventListener("click", () => {
     productsContainer.classList.add("hidden");
     productForm.classList.remove("hidden");
 })
@@ -50,7 +50,7 @@ const userAddBtn = document.getElementById("user-add-btn");
 const userForm = document.getElementById("user-form-container");
 
 
-userAddBtn.addEventListener("click", ()=> {
+userAddBtn.addEventListener("click", () => {
     usersContainer.classList.add("hidden");
     userForm.classList.remove("hidden");
 })
@@ -78,6 +78,7 @@ document.getElementById('add-user-btn').addEventListener('click', function () {
 
     userFormContainer.appendChild(clone);
 });
+
 function addToNotification(notification) {
     $.ajax({
         type: "POST",
@@ -88,12 +89,23 @@ function addToNotification(notification) {
         },
         success: (data) => {
             console.log(data);
+            displayNotification()
         }
     })
 }
 
 
+const notifBtn = document.getElementById("openNotif");
+const notificationList = document.getElementById("notificationList");
+
+notifBtn.addEventListener("click", () => {
+    notificationList.classList.toggle("hidden");
+})
+
+const notificationContainer = document.getElementById("notificationContainer");
+
 function displayNotification() {
+    notificationContainer.innerHTML = "";
     $.ajax({
         type: 'post',
         url: 'index.php?page=dashboard',
@@ -101,7 +113,15 @@ function displayNotification() {
             request: "displayNotification"
         },
         success: (data) => {
-            console.log(data);
+            let notifications = JSON.parse(data);
+            console.log(notifications);
+            notifications.forEach((notification) => {
+                notificationContainer.innerHTML += `<li class="flex">
+                                    <div class="text-white inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800">
+                                        <span>${notification.notification}</span>
+                                    </div>
+                                </li>`;
+            })
         }
     })
 }
