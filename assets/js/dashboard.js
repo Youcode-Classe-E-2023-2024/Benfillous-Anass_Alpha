@@ -90,6 +90,15 @@ function addToNotification(notification) {
             console.log(data);
         }
     })
+}
+
+
+function displayNotification() {
+    $.ajax({
+        type: 'post',
+        url: 'index.php?page=dashboard',
+        data: {
+            request: "displayNotification"
         },
         success: (data) => {
             console.log(data);
@@ -97,3 +106,12 @@ function addToNotification(notification) {
     })
 }
 
+displayNotification();
+        },
+        success: (data) => {
+            console.log(data);
+        }
+    })
+}
+
+notificationHasBeenSeen(1)
